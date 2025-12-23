@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% load static%}
+{%block css_files%}
+<link rel="stylesheet" href="{% static 'playground/playground.css' %}">
+<link rel="stylesheet" href="{% static 'playground/includes/header.css' %}">
+{%endblock%}
+
+    {% block page_title%}
+        month|upper
+    {% endblock %}
+    {% block content%}
+        {% include "playground/includes/header.html"%}
+        <h1>{{ month|title }}'s tasks</h1>
+        {% if text is not None %}
+        <h2>{{ text }}</h2>
+        {% else %}
+        <p class="fallback">There are no tasks for {{month}}</p>
+        {% endif %}
+    {% endblock %}
